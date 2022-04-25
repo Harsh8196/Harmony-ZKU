@@ -1,0 +1,1486 @@
+{
+  "contractName": "ISemaphoreGroups",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "groupId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint8",
+          "name": "depth",
+          "type": "uint8"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "zeroValue",
+          "type": "uint256"
+        }
+      ],
+      "name": "GroupCreated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "groupId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "identityCommitment",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "root",
+          "type": "uint256"
+        }
+      ],
+      "name": "MemberAdded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "groupId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "identityCommitment",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "root",
+          "type": "uint256"
+        }
+      ],
+      "name": "MemberRemoved",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "groupId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getRoot",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "groupId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getDepth",
+      "outputs": [
+        {
+          "internalType": "uint8",
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "groupId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getNumberOfLeaves",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.10+commit.fc410830\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"groupId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint8\",\"name\":\"depth\",\"type\":\"uint8\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"zeroValue\",\"type\":\"uint256\"}],\"name\":\"GroupCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"groupId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"identityCommitment\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"root\",\"type\":\"uint256\"}],\"name\":\"MemberAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"groupId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"identityCommitment\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"root\",\"type\":\"uint256\"}],\"name\":\"MemberRemoved\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"groupId\",\"type\":\"uint256\"}],\"name\":\"getDepth\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"groupId\",\"type\":\"uint256\"}],\"name\":\"getNumberOfLeaves\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"groupId\",\"type\":\"uint256\"}],\"name\":\"getRoot\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Interface of a SemaphoreGroups contract.\",\"events\":{\"GroupCreated(uint256,uint8,uint256)\":{\"details\":\"Emitted when a new group is created.\",\"params\":{\"depth\":\": Depth of the tree.\",\"groupId\":\": Id of the group.\",\"zeroValue\":\": Zero value of the tree.\"}},\"MemberAdded(uint256,uint256,uint256)\":{\"details\":\"Emitted when a new identity commitment is added.\",\"params\":{\"groupId\":\": Group id of the group.\",\"identityCommitment\":\": New identity commitment.\",\"root\":\": New root hash of the tree.\"}},\"MemberRemoved(uint256,uint256,uint256)\":{\"details\":\"Emitted when a new identity commitment is removed.\",\"params\":{\"groupId\":\": Group id of the group.\",\"identityCommitment\":\": New identity commitment.\",\"root\":\": New root hash of the tree.\"}}},\"kind\":\"dev\",\"methods\":{\"getDepth(uint256)\":{\"details\":\"Returns the depth of the tree of a group.\",\"params\":{\"groupId\":\": Id of the group.\"},\"returns\":{\"_0\":\"Depth of the group tree.\"}},\"getNumberOfLeaves(uint256)\":{\"details\":\"Returns the number of tree leaves of a group.\",\"params\":{\"groupId\":\": Id of the group.\"},\"returns\":{\"_0\":\"Number of tree leaves.\"}},\"getRoot(uint256)\":{\"details\":\"Returns the last root hash of a group.\",\"params\":{\"groupId\":\": Id of the group.\"},\"returns\":{\"_0\":\"Root hash of the group.\"}}},\"title\":\"SemaphoreGroups interface.\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"@appliedzkp/semaphore-contracts/interfaces/ISemaphoreGroups.sol\":\"ISemaphoreGroups\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"@appliedzkp/semaphore-contracts/interfaces/ISemaphoreGroups.sol\":{\"keccak256\":\"0x01097fc1d3842cf0bef28a3f1d3fe4b38f3b19e81eb09cc278cb131293f99f39\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d21690b73934dfd5ae04d3183a61202bb51eb96e8736d9d83e9b0dac313850da\",\"dweb:/ipfs/QmdCAJ7B2f5roCT2yGA8F4ZGMZkz3oxYksjJgj3Xq4TASR\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "//SPDX-License-Identifier: MIT\npragma solidity ^0.8.4;\n\n/// @title SemaphoreGroups interface.\n/// @dev Interface of a SemaphoreGroups contract.\ninterface ISemaphoreGroups {\n  /// @dev Emitted when a new group is created.\n  /// @param groupId: Id of the group.\n  /// @param depth: Depth of the tree.\n  /// @param zeroValue: Zero value of the tree.\n  event GroupCreated(uint256 indexed groupId, uint8 depth, uint256 zeroValue);\n\n  /// @dev Emitted when a new identity commitment is added.\n  /// @param groupId: Group id of the group.\n  /// @param identityCommitment: New identity commitment.\n  /// @param root: New root hash of the tree.\n  event MemberAdded(uint256 indexed groupId, uint256 identityCommitment, uint256 root);\n\n  /// @dev Emitted when a new identity commitment is removed.\n  /// @param groupId: Group id of the group.\n  /// @param identityCommitment: New identity commitment.\n  /// @param root: New root hash of the tree.\n  event MemberRemoved(uint256 indexed groupId, uint256 identityCommitment, uint256 root);\n\n  /// @dev Returns the last root hash of a group.\n  /// @param groupId: Id of the group.\n  /// @return Root hash of the group.\n  function getRoot(uint256 groupId) external view returns (uint256);\n\n  /// @dev Returns the depth of the tree of a group.\n  /// @param groupId: Id of the group.\n  /// @return Depth of the group tree.\n  function getDepth(uint256 groupId) external view returns (uint8);\n\n  /// @dev Returns the number of tree leaves of a group.\n  /// @param groupId: Id of the group.\n  /// @return Number of tree leaves.\n  function getNumberOfLeaves(uint256 groupId) external view returns (uint256);\n}\n",
+  "sourcePath": "@appliedzkp\\semaphore-contracts\\interfaces\\ISemaphoreGroups.sol",
+  "ast": {
+    "absolutePath": "@appliedzkp/semaphore-contracts/interfaces/ISemaphoreGroups.sol",
+    "exportedSymbols": {
+      "ISemaphoreGroups": [
+        379
+      ]
+    },
+    "id": 380,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 326,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".4"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "31:23:4"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "ISemaphoreGroups",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": {
+          "id": 327,
+          "nodeType": "StructuredDocumentation",
+          "src": "56:88:4",
+          "text": "@title SemaphoreGroups interface.\n @dev Interface of a SemaphoreGroups contract."
+        },
+        "fullyImplemented": false,
+        "id": 379,
+        "linearizedBaseContracts": [
+          379
+        ],
+        "name": "ISemaphoreGroups",
+        "nameLocation": "154:16:4",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "anonymous": false,
+            "documentation": {
+              "id": 328,
+              "nodeType": "StructuredDocumentation",
+              "src": "175:171:4",
+              "text": "@dev Emitted when a new group is created.\n @param groupId: Id of the group.\n @param depth: Depth of the tree.\n @param zeroValue: Zero value of the tree."
+            },
+            "id": 336,
+            "name": "GroupCreated",
+            "nameLocation": "355:12:4",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 335,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 330,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "groupId",
+                  "nameLocation": "384:7:4",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 336,
+                  "src": "368:23:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 329,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "368:7:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 332,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "depth",
+                  "nameLocation": "399:5:4",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 336,
+                  "src": "393:11:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 331,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "393:5:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 334,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "zeroValue",
+                  "nameLocation": "414:9:4",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 336,
+                  "src": "406:17:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 333,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "406:7:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "367:57:4"
+            },
+            "src": "349:76:4"
+          },
+          {
+            "anonymous": false,
+            "documentation": {
+              "id": 337,
+              "nodeType": "StructuredDocumentation",
+              "src": "429:206:4",
+              "text": "@dev Emitted when a new identity commitment is added.\n @param groupId: Group id of the group.\n @param identityCommitment: New identity commitment.\n @param root: New root hash of the tree."
+            },
+            "id": 345,
+            "name": "MemberAdded",
+            "nameLocation": "644:11:4",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 344,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 339,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "groupId",
+                  "nameLocation": "672:7:4",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 345,
+                  "src": "656:23:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 338,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "656:7:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 341,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "identityCommitment",
+                  "nameLocation": "689:18:4",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 345,
+                  "src": "681:26:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 340,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "681:7:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 343,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "root",
+                  "nameLocation": "717:4:4",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 345,
+                  "src": "709:12:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 342,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "709:7:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "655:67:4"
+            },
+            "src": "638:85:4"
+          },
+          {
+            "anonymous": false,
+            "documentation": {
+              "id": 346,
+              "nodeType": "StructuredDocumentation",
+              "src": "727:208:4",
+              "text": "@dev Emitted when a new identity commitment is removed.\n @param groupId: Group id of the group.\n @param identityCommitment: New identity commitment.\n @param root: New root hash of the tree."
+            },
+            "id": 354,
+            "name": "MemberRemoved",
+            "nameLocation": "944:13:4",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 353,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 348,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "groupId",
+                  "nameLocation": "974:7:4",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 354,
+                  "src": "958:23:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 347,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "958:7:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 350,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "identityCommitment",
+                  "nameLocation": "991:18:4",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 354,
+                  "src": "983:26:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 349,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "983:7:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 352,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "root",
+                  "nameLocation": "1019:4:4",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 354,
+                  "src": "1011:12:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 351,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1011:7:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "957:67:4"
+            },
+            "src": "938:87:4"
+          },
+          {
+            "documentation": {
+              "id": 355,
+              "nodeType": "StructuredDocumentation",
+              "src": "1029:124:4",
+              "text": "@dev Returns the last root hash of a group.\n @param groupId: Id of the group.\n @return Root hash of the group."
+            },
+            "functionSelector": "9b24b3b0",
+            "id": 362,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getRoot",
+            "nameLocation": "1165:7:4",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 358,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 357,
+                  "mutability": "mutable",
+                  "name": "groupId",
+                  "nameLocation": "1181:7:4",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 362,
+                  "src": "1173:15:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 356,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1173:7:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1172:17:4"
+            },
+            "returnParameters": {
+              "id": 361,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 360,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 362,
+                  "src": "1213:7:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 359,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1213:7:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1212:9:4"
+            },
+            "scope": 379,
+            "src": "1156:66:4",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 363,
+              "nodeType": "StructuredDocumentation",
+              "src": "1226:128:4",
+              "text": "@dev Returns the depth of the tree of a group.\n @param groupId: Id of the group.\n @return Depth of the group tree."
+            },
+            "functionSelector": "75e618c9",
+            "id": 370,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getDepth",
+            "nameLocation": "1366:8:4",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 366,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 365,
+                  "mutability": "mutable",
+                  "name": "groupId",
+                  "nameLocation": "1383:7:4",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 370,
+                  "src": "1375:15:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 364,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1375:7:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1374:17:4"
+            },
+            "returnParameters": {
+              "id": 369,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 368,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 370,
+                  "src": "1415:5:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 367,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1415:5:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1414:7:4"
+            },
+            "scope": 379,
+            "src": "1357:65:4",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 371,
+              "nodeType": "StructuredDocumentation",
+              "src": "1426:130:4",
+              "text": "@dev Returns the number of tree leaves of a group.\n @param groupId: Id of the group.\n @return Number of tree leaves."
+            },
+            "functionSelector": "b9c78c2b",
+            "id": 378,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getNumberOfLeaves",
+            "nameLocation": "1568:17:4",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 374,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 373,
+                  "mutability": "mutable",
+                  "name": "groupId",
+                  "nameLocation": "1594:7:4",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 378,
+                  "src": "1586:15:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 372,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1586:7:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1585:17:4"
+            },
+            "returnParameters": {
+              "id": 377,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 376,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 378,
+                  "src": "1626:7:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 375,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1626:7:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1625:9:4"
+            },
+            "scope": 379,
+            "src": "1559:76:4",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 380,
+        "src": "144:1493:4",
+        "usedErrors": []
+      }
+    ],
+    "src": "31:1607:4"
+  },
+  "legacyAST": {
+    "absolutePath": "@appliedzkp/semaphore-contracts/interfaces/ISemaphoreGroups.sol",
+    "exportedSymbols": {
+      "ISemaphoreGroups": [
+        379
+      ]
+    },
+    "id": 380,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 326,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".4"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "31:23:4"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "ISemaphoreGroups",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": {
+          "id": 327,
+          "nodeType": "StructuredDocumentation",
+          "src": "56:88:4",
+          "text": "@title SemaphoreGroups interface.\n @dev Interface of a SemaphoreGroups contract."
+        },
+        "fullyImplemented": false,
+        "id": 379,
+        "linearizedBaseContracts": [
+          379
+        ],
+        "name": "ISemaphoreGroups",
+        "nameLocation": "154:16:4",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "anonymous": false,
+            "documentation": {
+              "id": 328,
+              "nodeType": "StructuredDocumentation",
+              "src": "175:171:4",
+              "text": "@dev Emitted when a new group is created.\n @param groupId: Id of the group.\n @param depth: Depth of the tree.\n @param zeroValue: Zero value of the tree."
+            },
+            "id": 336,
+            "name": "GroupCreated",
+            "nameLocation": "355:12:4",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 335,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 330,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "groupId",
+                  "nameLocation": "384:7:4",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 336,
+                  "src": "368:23:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 329,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "368:7:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 332,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "depth",
+                  "nameLocation": "399:5:4",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 336,
+                  "src": "393:11:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 331,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "393:5:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 334,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "zeroValue",
+                  "nameLocation": "414:9:4",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 336,
+                  "src": "406:17:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 333,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "406:7:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "367:57:4"
+            },
+            "src": "349:76:4"
+          },
+          {
+            "anonymous": false,
+            "documentation": {
+              "id": 337,
+              "nodeType": "StructuredDocumentation",
+              "src": "429:206:4",
+              "text": "@dev Emitted when a new identity commitment is added.\n @param groupId: Group id of the group.\n @param identityCommitment: New identity commitment.\n @param root: New root hash of the tree."
+            },
+            "id": 345,
+            "name": "MemberAdded",
+            "nameLocation": "644:11:4",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 344,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 339,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "groupId",
+                  "nameLocation": "672:7:4",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 345,
+                  "src": "656:23:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 338,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "656:7:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 341,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "identityCommitment",
+                  "nameLocation": "689:18:4",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 345,
+                  "src": "681:26:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 340,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "681:7:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 343,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "root",
+                  "nameLocation": "717:4:4",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 345,
+                  "src": "709:12:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 342,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "709:7:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "655:67:4"
+            },
+            "src": "638:85:4"
+          },
+          {
+            "anonymous": false,
+            "documentation": {
+              "id": 346,
+              "nodeType": "StructuredDocumentation",
+              "src": "727:208:4",
+              "text": "@dev Emitted when a new identity commitment is removed.\n @param groupId: Group id of the group.\n @param identityCommitment: New identity commitment.\n @param root: New root hash of the tree."
+            },
+            "id": 354,
+            "name": "MemberRemoved",
+            "nameLocation": "944:13:4",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 353,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 348,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "groupId",
+                  "nameLocation": "974:7:4",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 354,
+                  "src": "958:23:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 347,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "958:7:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 350,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "identityCommitment",
+                  "nameLocation": "991:18:4",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 354,
+                  "src": "983:26:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 349,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "983:7:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 352,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "root",
+                  "nameLocation": "1019:4:4",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 354,
+                  "src": "1011:12:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 351,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1011:7:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "957:67:4"
+            },
+            "src": "938:87:4"
+          },
+          {
+            "documentation": {
+              "id": 355,
+              "nodeType": "StructuredDocumentation",
+              "src": "1029:124:4",
+              "text": "@dev Returns the last root hash of a group.\n @param groupId: Id of the group.\n @return Root hash of the group."
+            },
+            "functionSelector": "9b24b3b0",
+            "id": 362,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getRoot",
+            "nameLocation": "1165:7:4",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 358,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 357,
+                  "mutability": "mutable",
+                  "name": "groupId",
+                  "nameLocation": "1181:7:4",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 362,
+                  "src": "1173:15:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 356,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1173:7:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1172:17:4"
+            },
+            "returnParameters": {
+              "id": 361,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 360,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 362,
+                  "src": "1213:7:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 359,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1213:7:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1212:9:4"
+            },
+            "scope": 379,
+            "src": "1156:66:4",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 363,
+              "nodeType": "StructuredDocumentation",
+              "src": "1226:128:4",
+              "text": "@dev Returns the depth of the tree of a group.\n @param groupId: Id of the group.\n @return Depth of the group tree."
+            },
+            "functionSelector": "75e618c9",
+            "id": 370,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getDepth",
+            "nameLocation": "1366:8:4",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 366,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 365,
+                  "mutability": "mutable",
+                  "name": "groupId",
+                  "nameLocation": "1383:7:4",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 370,
+                  "src": "1375:15:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 364,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1375:7:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1374:17:4"
+            },
+            "returnParameters": {
+              "id": 369,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 368,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 370,
+                  "src": "1415:5:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 367,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1415:5:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1414:7:4"
+            },
+            "scope": 379,
+            "src": "1357:65:4",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 371,
+              "nodeType": "StructuredDocumentation",
+              "src": "1426:130:4",
+              "text": "@dev Returns the number of tree leaves of a group.\n @param groupId: Id of the group.\n @return Number of tree leaves."
+            },
+            "functionSelector": "b9c78c2b",
+            "id": 378,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getNumberOfLeaves",
+            "nameLocation": "1568:17:4",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 374,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 373,
+                  "mutability": "mutable",
+                  "name": "groupId",
+                  "nameLocation": "1594:7:4",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 378,
+                  "src": "1586:15:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 372,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1586:7:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1585:17:4"
+            },
+            "returnParameters": {
+              "id": 377,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 376,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 378,
+                  "src": "1626:7:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 375,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1626:7:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1625:9:4"
+            },
+            "scope": 379,
+            "src": "1559:76:4",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 380,
+        "src": "144:1493:4",
+        "usedErrors": []
+      }
+    ],
+    "src": "31:1607:4"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.10+commit.fc410830.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.3",
+  "updatedAt": "2022-04-25T20:16:59.020Z",
+  "devdoc": {
+    "details": "Interface of a SemaphoreGroups contract.",
+    "events": {
+      "GroupCreated(uint256,uint8,uint256)": {
+        "details": "Emitted when a new group is created.",
+        "params": {
+          "depth": ": Depth of the tree.",
+          "groupId": ": Id of the group.",
+          "zeroValue": ": Zero value of the tree."
+        }
+      },
+      "MemberAdded(uint256,uint256,uint256)": {
+        "details": "Emitted when a new identity commitment is added.",
+        "params": {
+          "groupId": ": Group id of the group.",
+          "identityCommitment": ": New identity commitment.",
+          "root": ": New root hash of the tree."
+        }
+      },
+      "MemberRemoved(uint256,uint256,uint256)": {
+        "details": "Emitted when a new identity commitment is removed.",
+        "params": {
+          "groupId": ": Group id of the group.",
+          "identityCommitment": ": New identity commitment.",
+          "root": ": New root hash of the tree."
+        }
+      }
+    },
+    "kind": "dev",
+    "methods": {
+      "getDepth(uint256)": {
+        "details": "Returns the depth of the tree of a group.",
+        "params": {
+          "groupId": ": Id of the group."
+        },
+        "returns": {
+          "_0": "Depth of the group tree."
+        }
+      },
+      "getNumberOfLeaves(uint256)": {
+        "details": "Returns the number of tree leaves of a group.",
+        "params": {
+          "groupId": ": Id of the group."
+        },
+        "returns": {
+          "_0": "Number of tree leaves."
+        }
+      },
+      "getRoot(uint256)": {
+        "details": "Returns the last root hash of a group.",
+        "params": {
+          "groupId": ": Id of the group."
+        },
+        "returns": {
+          "_0": "Root hash of the group."
+        }
+      }
+    },
+    "title": "SemaphoreGroups interface.",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
