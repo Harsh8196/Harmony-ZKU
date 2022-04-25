@@ -13,6 +13,14 @@ Note: Currently this demo is only for POC. In future will incorporate new featur
 ## Technology Used
 Semaphore protocol for employee privacy.
 
+## Testnet Contract Address
+0xc72A8CAaCfd8c71606A33a8086d3C20bA6d69F7e
+
+## Demo UI
+
+## Demo Video
+https://drive.google.com/file/d/1LoNTjRjsi25HA0NDuUXpFOeYkaASUHmy/view?usp=sharing
+
 ## Steps to use ZKPayroll
 
 1. ZKPayroll admin register employer.
