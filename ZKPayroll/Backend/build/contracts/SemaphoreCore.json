@@ -3107,7 +3107,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.3",
-  "updatedAt": "2022-04-25T21:28:24.277Z",
+  "updatedAt": "2022-05-07T12:15:37.507Z",
   "devdoc": {
     "details": "The following code verifies that the proof is correct and saves the hash of the nullifier to prevent double-signaling. External nullifier and Merkle trees (i.e. groups) must be managed externally.",
     "kind": "dev",

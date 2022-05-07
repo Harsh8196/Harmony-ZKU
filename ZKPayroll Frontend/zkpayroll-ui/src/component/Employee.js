@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import Base from './Base'
 import '../css/Employee.css'
-import { Signer, utils } from "ethers"
+import { utils } from "ethers"
 import ZKPayroll from '../script/ZKPayroll'
 import MetaMaskOnboarding from '@metamask/onboarding';
 import web3 from "../script/web3_"
 import { ZkIdentity, Strategy } from "@zk-kit/identity"
-import { Semaphore, SemaphorePublicSignals, SemaphoreSolidityProof } from "@zk-kit/protocols"
+import { Semaphore} from "@zk-kit/protocols"
 import { createMerkleProof } from "../script/utils"
-
-const wasmFilePath = "../build/semaphore.wasm"
-const finalZkeyPath = "../build/semaphore_final.zkey"
 
 
 
@@ -22,11 +19,11 @@ function Employee() {
     const [loading, setLoading] = useState(true)
     const [employeeSecret, setemployeeSecret] = useState('')
     const [commitmentStatus, setcommitmentStatus] = useState(false)
-    const [employeeName,setemployeeName] = useState('')
+    
     const [employeeId,setemployeeId] = useState('')
     const [withdrawalNotes,setwithdrawalNotes] = useState('')
     const [payoutAddress,setpayoutAddress] = useState('')
-    const [allleaves,setallLeaves] = useState([])
+    
 
     useEffect(async () => {
         function handleNewAccounts(newAccounts) {
@@ -60,16 +57,6 @@ function Employee() {
         return identityCommitment
     }
 
-    useEffect(async () => {
-        try {
-            const result = await ZKPayroll.methods.getLeaves().call()
-            // console.log(result)
-            setallLeaves(result)
-        } catch (err) {
-            
-            console.log(err)
-        }
-    },[])
 
     const onSubmit = async (event) => {
         event.preventDefault()
@@ -107,7 +94,10 @@ function Employee() {
     const result = await ZKPayroll.methods.getEmployeeEmployerId(employeeId).call()
     // console.log(result)
     const employerId = result[0]
-    const merkleProof = createMerkleProof(allleaves, leavesCommitment)
+     
+    const getLeaves = await ZKPayroll.methods.getEmployerLeaves(employerId).call()
+    // console.log()
+    const merkleProof = createMerkleProof(getLeaves, leavesCommitment)
     const withdraw = "1"
     const bytes32Withdraw = utils.formatBytes32String(withdraw)
 

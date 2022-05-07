@@ -3,10 +3,6 @@ pragma solidity ^0.8.4;
 import "@appliedzkp/semaphore-contracts/base/SemaphoreCore.sol";
 import "@appliedzkp/semaphore-contracts/base/SemaphoreGroups.sol";
 import "../Interface/IZKPayroll.sol";
-import {PoseidonT3} from "@zk-kit/incremental-merkle-tree.sol/contracts/Hashes.sol";
-
-
-
 
 
 contract ZKPayroll is IZKPayroll,SemaphoreCore,SemaphoreGroups {
@@ -18,11 +14,16 @@ struct listOfemployees{
     uint256[] employeeId;
 }
 
+struct listOfLeaves{
+
+    uint256[] leaves;
+}
+
 mapping(uint8 => IVerifier) internal verifiers;
 
 address[] listOfEmployer;
 
-uint256[] leaves;
+mapping(uint256 => listOfLeaves) employerToLeaves;
 
 mapping(uint256 => employee) idToemployee;
 
@@ -37,7 +38,7 @@ mapping(uint256 => uint256) notesTosalary;
 uint256 public employerCount;
 uint256 public employeesCount;
 
-
+uint256 public _hash;
 
 address admin;
 
@@ -60,7 +61,7 @@ modifier onlyEmployer(address _sender) {
 
 //for testing any one can register employer
 //On mainnet only Admin can register employer
-function createEmployer(address _employerAddress) public override {
+function createEmployer(address _employerAddress) public override onlyAdmin(msg.sender){
 
     employerCount += 1 ;
 
@@ -130,6 +131,10 @@ function getEmployeeIdList() public view override onlyEmployer(msg.sender) retur
     return(addressToemployees[msg.sender].employeeId);
 }
 
+function getEmployerLeaves(uint256 _employerId) public view override returns(uint256[] memory _employerLeaves) {
+    return(employerToLeaves[_employerId].leaves);
+}
+
 function getEmployerList() public view override onlyAdmin(msg.sender) returns (address[] memory _employerList) {
     return(listOfEmployer);
 }
@@ -148,9 +153,7 @@ function getEmployeeEmployerId(uint256 _id) public view override returns(uint256
     return(_employeeDetails.employerId);
 }
 
-function getLeaves() public view override returns(uint256[] memory _leaves){
-    return(leaves);
-}
+
 
 function addfundToContract() public payable override onlyEmployer(msg.sender) {
     addressTofundValue[msg.sender] += msg.value;
@@ -179,14 +182,11 @@ function addNotes(uint256 _employeeId,uint256 _salary, uint256 _receivedCommitme
 
     addressTofundValue[msg.sender] = _fund - _salary;
 
-    leaves.push(_identityCommitment);
+    employerToLeaves[_employerId].leaves.push(_identityCommitment);
 
   }
 
-  function addToleaves(uint256 _a) public onlyEmployer(msg.sender) {
-      uint256 _employerId = addressToemployer[msg.sender].employerId;
-      _addMember(_employerId, _a);
-  }
+  
 
 
   function withdrawNotes(uint256 _withdrawalNotes,address payable _withdrawalAddress,bytes32 withdraw,uint256 nullifierHash,uint256 employerId,uint256[8] calldata proof) public override  {

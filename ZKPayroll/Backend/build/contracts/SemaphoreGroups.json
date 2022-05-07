@@ -4970,7 +4970,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.3",
-  "updatedAt": "2022-04-25T21:28:24.285Z",
+  "updatedAt": "2022-05-07T12:15:37.517Z",
   "devdoc": {
     "details": "The following code allows you to create groups, add and remove members. You can use getters to obtain informations about groups (root, depth, number of leaves).",
     "kind": "dev",

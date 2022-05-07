@@ -46,9 +46,10 @@ interface IZKPayroll {
 
     function getEmployerList() external view returns (address[] memory _employerList);
 
+    function getEmployerLeaves(uint256 _employerId) external view returns(uint256[] memory _employerLeaves);
+
     function getEmployeeEmployerId(uint256 _id) external view returns(uint256 _employerId);
 
-    function getLeaves() external view  returns(uint256[] memory _leaves);
 
     function getEmployeeDetails(uint256 _id) external view returns(string memory _employeeName, employeeState _state,uint256 _employerId,uint256 _employeeCommitment);
 
@@ -60,5 +61,5 @@ interface IZKPayroll {
 
     function withdrawNotes(uint256 _withdrawalNotes,address payable _withdrawalAddress , bytes32 withdraw, uint256 nullifierHash, uint256 employerId, uint256[8] calldata proof) external;
 
-
+    
 }

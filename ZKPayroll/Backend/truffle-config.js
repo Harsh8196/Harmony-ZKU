@@ -21,8 +21,8 @@
  const HDWalletProvider = require('@truffle/hdwallet-provider');
  //
  // const fs = require('fs');
- const mnemonic = "comic hero roof harsh main make please ill slush away spice slab"
- const privateKeyTest = '85d00cb87da386d7d617a75841000d263dc3147937f050f6c61bd925e3f751be';
+ const mnemonic = "comic hero roof testa main make please ill slush away spice slab"
+//  const privateKeyTest = '';
 
 module.exports = {
   /**
@@ -58,6 +58,17 @@ module.exports = {
       network_id: 1666700000, // 1666600000 for mainnet
       
     },
+    // mainnet: {
+    //   provider: () => {
+    //     return new HDWalletProvider({
+    //       privateKeys: [privateKeyTest],
+    //       providerOrUrl: 'https://api.s0.t.hmny.io',
+    //       derivationPath: `m/44'/1023'/0'/0/`
+    //     });
+    //   },
+    //   network_id: 1666600000, // 1666600000 for mainnet
+      
+    // },
     testnetHar: {
       provider: () => {
         if (!privateKeyTest.trim()) {

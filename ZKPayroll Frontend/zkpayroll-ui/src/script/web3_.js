@@ -8,7 +8,7 @@ if (typeof window !== "undefined" && typeof window.ethereum !== "undefined") {
   window.ethereum.request({ method: "eth_requestAccounts" });
   web3= new Web3(window.web3.currentProvider);
 } else {
-  const providers = new  Web3.providers.HttpProvider('HTTP://127.0.0.1:7545')
+  const providers = new  Web3.providers.HttpProvider('https://api.s0.b.hmny.io')
   web3 = new Web3(providers);
 }
 

@@ -19976,14 +19976,30 @@
     "5777": {
       "events": {},
       "links": {
-        "PoseidonT3": "0xbD3D1fb705e798d17b520B0CD49B342322c314E2"
+        "PoseidonT3": "0xBa0b8Fe1C293eFaf637eBb1516ec55E5f7984904"
       },
-      "address": "0x06Dd86040B7F1d5b95788177a8e088159b38a451",
-      "transactionHash": "0x01e37be8bd2b585603d56a36d7d77134b06ffdf3aa36a9e549342f5a540260cc"
+      "address": "0xc71bc223A4f2DB7cCe2dCf793693c5D17FC3B418",
+      "transactionHash": "0x5be937f9b68bc60dd703badadc4f707b747141561692c881edda81bf3bd1aa33"
+    },
+    "1666600000": {
+      "events": {},
+      "links": {
+        "PoseidonT3": "0xbCa7f566fa0b3c1F80C8A6d937e3ca8b40785A79"
+      },
+      "address": "0x2034f70bDC3d730b9504395631D43c9E120D4a83",
+      "transactionHash": "0x496062601b88130f0fa65d4ff020f45ed458a5abfdbb465c04eff8a65b6fc729"
+    },
+    "1666700000": {
+      "events": {},
+      "links": {
+        "PoseidonT3": "0x96DCDE74c5B6CcF4FdbF6Baa491B2123Fd4BA51c"
+      },
+      "address": "0xbE64080A2Db63ef988dcC29EE9E6d57E1831a5cc",
+      "transactionHash": "0xe6af81999f0e5d32df9e7226c04ba1b9357e1802f853c43d20c560029949a349"
     }
   },
   "schemaVersion": "3.4.3",
-  "updatedAt": "2022-04-25T20:17:12.678Z",
+  "updatedAt": "2022-05-07T12:21:48.234Z",
   "networkType": "ethereum",
   "devdoc": {
     "details": "The incremental tree allows to calculate the root hash each time a leaf is added, ensuring the integrity of the tree.",

@@ -231,7 +231,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.3",
-  "updatedAt": "2022-04-25T21:28:24.290Z",
+  "updatedAt": "2022-05-07T12:15:37.526Z",
   "devdoc": {
     "details": "Interface of SemaphoreCore contract.",
     "events": {

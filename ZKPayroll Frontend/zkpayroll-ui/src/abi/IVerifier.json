@@ -670,7 +670,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.3",
-  "updatedAt": "2022-04-25T20:16:59.026Z",
+  "updatedAt": "2022-05-07T12:15:37.539Z",
   "devdoc": {
     "details": "Interface of Verifier contract.",
     "kind": "dev",

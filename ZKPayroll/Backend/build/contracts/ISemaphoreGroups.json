@@ -1416,7 +1416,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.3",
-  "updatedAt": "2022-04-25T21:28:24.293Z",
+  "updatedAt": "2022-05-07T12:15:37.531Z",
   "devdoc": {
     "details": "Interface of a SemaphoreGroups contract.",
     "events": {

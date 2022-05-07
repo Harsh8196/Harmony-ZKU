@@ -24,5 +24,6 @@ module.exports = async function (deployer) {
   IncrementalBinaryTree.link("PoseidonT3",poseidonT3Contract.address)
   await deployer.deploy(IncrementalBinaryTree);
   await deployer.link(IncrementalBinaryTree,ZKPayroll);
+  // ZKPayroll.link("PoseidonT3",poseidonT3Contract.address);
   await deployer.deploy(ZKPayroll,_verifier.address);
 };
