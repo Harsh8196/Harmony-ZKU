@@ -8,7 +8,7 @@ if (typeof window !== "undefined" && typeof window.ethereum !== "undefined") {
   window.ethereum.request({ method: "eth_requestAccounts" });
   web3= new Web3(window.web3.currentProvider);
 } else {
-  const providers = new  Web3.providers.HttpProvider('https://api.s0.b.hmny.io')
+  const providers = new  Web3.providers.HttpProvider('https://api.harmony.one')
   web3 = new Web3(providers);
 }
 
