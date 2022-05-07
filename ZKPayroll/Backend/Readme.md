@@ -11,7 +11,7 @@ ZK Payroll is used to protect employee privacy.The employees generate ‘commitm
 Note: Currently this demo is only for POC. In future will incorporate new feature.
 
 ## Technology Used
-# Semaphore protocol 2.0 used for employee privacy
+### Semaphore protocol 2.0 used for employee privacy
 
 ## Testnet Contract Address
 0x6999bA844230435e15cC31d9251577dAeEb9fD35
