@@ -11,15 +11,19 @@ ZK Payroll is used to protect employee privacy.The employees generate ‘commitm
 Note: Currently this demo is only for POC. In future will incorporate new feature.
 
 ## Technology Used
-Semaphore protocol for employee privacy.
+Semaphore protocol 2.0 used for employee privacy
 
 ## Testnet Contract Address
-0xc72A8CAaCfd8c71606A33a8086d3C20bA6d69F7e
+0x6999bA844230435e15cC31d9251577dAeEb9fD35
+
+## Mainnet Contract Address
+0x9BBB0C1f4C088260B368277fBC161Aac93e1c21c
 
 ## Demo UI
+https://glowing-dusk-2b3656.netlify.app/
 
 ## Demo Video
-https://drive.google.com/file/d/1LoNTjRjsi25HA0NDuUXpFOeYkaASUHmy/view?usp=sharing
+https://drive.google.com/file/d/1lK1xhByzOAG7O6e3YbLR9iK_QYZgxkjq/view?usp=sharing
 
 ## Steps to use ZKPayroll
 
